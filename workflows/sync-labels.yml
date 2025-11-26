@@ -16,9 +16,7 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y gh
 
       - name: Authenticate GitHub CLI
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: echo $GITHUB_TOKEN | gh auth login --with-token
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | gh auth login --with-token
 
       - name: Apply organization-default labels
         run: |
